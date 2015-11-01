@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>nativeSQL</title>
+    </h:head>
+    <h:body>
+        <view>
+            <h:form>
+                <h:commandButton value="createObjects" action="#{manageEmployee.createObjects()}" />
+                <p></p>
+                <h:commandButton value="deleteObjects" action="#{manageEmployee.deleteObjects()}" />
+                <p></p>
+                <h:commandButton value="getCount" action="#{manageEmployee.countRow()}" />
+                <h2 style="color: darkorange">
+                    <h:outputLabel value="Time of hamdle: #{manageEmployee.time}" />
+                </h2>
+                <p></p>
+                <p></p>
+                <h3 style="color: darkblue">
+                    <h:outputLabel value="#{manageEmployee.result}" />
+                </h3>
+                <p></p>
+                <h:dataTable value="#{manageEmployee.listEntity()}" var="o" >
+                    <h:column>
+                        <f:facet  name="header" >id</f:facet>#{o.id}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" >firstName</f:facet>#{o.firstName}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" >lastName</f:facet>#{o.lastName}
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header" >salary</f:facet>#{o.salary}
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </view>
+    </h:body>
+</html>
+
